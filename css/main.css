@@ -1,0 +1,32 @@
+/* Estilos básicos */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;}
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+header {
+    width: 100%;
+    height: 300px; /* Ajusta la altura según lo necesites */
+}
+
+.imagen-encabezado {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para llenar el espacio sin deformarse */
+}
+
+h1{color: rgb(253, 21, 129);
+    font-weight: bold;
+    font-size: 300%;
+    text-align: left;}
+
+h2{color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 150%;
+    text-align: left;}
+

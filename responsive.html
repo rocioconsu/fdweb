@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ejemplo Responsive</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Review entrevistas a Aitana</h1>
+		</header>
+        <style>
+            /* Estilos base (Mobile First) */
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+header,
+footer {
+	background: #333;
+	color: #fff;
+	text-align: center;
+	padding: 1rem;
+}
+
+.contenedor {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1200px;
+	margin: auto;
+	padding: 1rem;
+}
+
+.columna {
+	/*
+		Sintaxis: flex: [flex-grow] [flex-shrink] [flex-basis];
+		- flex-grow:    1 → permite que crezca para ocupar espacio disponible
+		- flex-shrink:  1 → permite que se reduzca si no cabe
+		- flex-basis: 100% → ancho base deseado para esta columna
+		En este caso: 1 columna por fila en móvil.
+	*/
+	flex: 1 1 100%;
+	box-sizing: border-box;
+	padding: 1rem;
+    border-radius: 20px;
+}
+
+.columna:nth-child(odd) {
+	background: #f0f0f0;
+}
+
+/* Tablet (min-width: 600px) — 2 columnas */
+@media (min-width: 600px) {
+	.columna {
+		/* 2 columnas por fila: cada una ~50% del ancho */
+		flex: 1 1 50%;
+	}
+}
+
+/* Desktop (min-width: 900px) — 3 columnas */
+@media (min-width: 900px) {
+	.columna {
+		/* 3 columnas por fila: cada una ~33.33% del ancho */
+		flex: 1 1 33.33%;
+	}
+}
+        </style>
+		<main class="contenedor">
+			<article class="columna">Aitana (Barcelona, 1999) se ha coronado como una de las grandes estrellas del pop en España. Desde que comenzó su carrera musical en 2018, sólo conoce el éxito. Con tres discos de estudio lanzados, el último Alpha (que reúne sonidos pop con una vertiente más electrónica), esta artista de 24 años ha vivido una rápida expansión internacional.
+            En 2024, Aitana recorrerá España con una gira de festivales. En Andalucía, visita el Icónica Fest en Sevilla el 7 de junio, el Starlite de Marbella o el Rock in Rio de Lisboa, donde cantará en el escenario principal el 23 de junio.</article>
+			<article class="columna">La verdad es que no quiero ni romper con nada. Tampoco supone volver a empezar. La gente me dice que quiero buscar un público más maduro y dejar atrás el infantil. No es así, porque ¿sabes lo difícil que es que un niño sea tu fan o que te preste atención? Para mí es muy fuerte tener un público que sean niños. Pero también invito a la gente a que venga a mis conciertos y vea que tengo otro tipo de públicos. En realidad es muy familiar. Y lo digo porque por la calle las familias me dicen que mi música los une. Eso es lo más bonito.</article>
+			<article class="columna">Aitana: “Nadie me va a quitar sobre el escenario la seguridad que yo misma he conseguido con mi terapia. Miradme, lo voy a hacer todo el rato y me da igual lo que me digáis, me lo estoy pasando bien y me siento sexy”
+            El periplo que Aitana ha emprendido en aras de conocer su identidad propia es uno de los más fascinantes del pop español. Hablamos con la artista de su glorioso asalto al Bernabéu, su esperado cuarto álbum de estudio e intentamos desgranar la anhelada fórmula del triunfo, la cual cualquiera pensaría que ella conoce al dedillo.</article><article class="columna">Aitana: “Nadie me va a quitar sobre el escenario la seguridad que yo misma he conseguido con mi terapia. Miradme, lo voy a hacer todo el rato y me da igual lo que me digáis, me lo estoy pasando bien y me siento sexy”
+            El periplo que Aitana ha emprendido en aras de conocer su identidad propia es uno de los más fascinantes del pop español. Hablamos con la artista de su glorioso asalto al Bernabéu, su esperado cuarto álbum de estudio e intentamos desgranar la anhelada fórmula del triunfo, la cual cualquiera pensaría que ella conoce al dedillo.</article>
+            <article class="columna">Aitana: “Nadie me va a quitar sobre el escenario la seguridad que yo misma he conseguido con mi terapia. Miradme, lo voy a hacer todo el rato y me da igual lo que me digáis, me lo estoy pasando bien y me siento sexy”
+            El periplo que Aitana ha emprendido en aras de conocer su identidad propia es uno de los más fascinantes del pop español. Hablamos con la artista de su glorioso asalto al Bernabéu, su esperado cuarto álbum de estudio e intentamos desgranar la anhelada fórmula del triunfo, la cual cualquiera pensaría que ella conoce al dedillo.</article>
+            <article class="columna">Aitana: “Nadie me va a quitar sobre el escenario la seguridad que yo misma he conseguido con mi terapia. Miradme, lo voy a hacer todo el rato y me da igual lo que me digáis, me lo estoy pasando bien y me siento sexy”
+            El periplo que Aitana ha emprendido en aras de conocer su identidad propia es uno de los más fascinantes del pop español. Hablamos con la artista de su glorioso asalto al Bernabéu, su esperado cuarto álbum de estudio e intentamos desgranar la anhelada fórmula del triunfo, la cual cualquiera pensaría que ella conoce al dedillo.</article>
+            
+		</main>
+		<footer>&copy; 2025 Mi Sitio Web</footer>
+	</body>
+</html>

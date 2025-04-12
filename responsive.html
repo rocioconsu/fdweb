@@ -1,181 +1,320 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Análisis nuevas tendencias</title>
-	<link rel="imagenes" type="image/jpg" href="mickey.png"> 
-	<style>
-		/* Estilos generales */
-		:root {
-			--color-principal:#33333b;
-			--color-secundario: #33333b;
-			--color-fondo: #eaf0f1;
-			--color-fondo-alt: #b9cccf;
-			--color-texto: #000000;
-		}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Análisis nuevas tendencias</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-		html {
-			scroll-behavior: smooth;
-		}
+<style>
+    :root {
+    --color-primario: #000;
+    --color-secundario: #555;
+    --color-acento: #007b89;
+    --color-fondo: #f9f9f9;
+    --color-claro: #ffffff;
+    --color-oscuro: #1c1c1e;
+    }
 
-		body {
-			margin: 0;
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			background: var(--color-fondo);
-			color: var(--color-texto);
-		}
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
 
-		header {
-			background: var(--color-fondo);
-			color:var(--color-principal);
-			text-align: center;
-			padding: 2rem 1rem;
-		}
+    html {
+    scroll-behavior: smooth;
+    }
 
-		header h1 {
-			font-size: 3rem;
-			margin: 0;
-		}
+    body {
+    font-family: 'Inter', sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-primario);
+    line-height: 1.6;
+    }
 
-		.navbar {
-			display: flex;
-			justify-content: center;
-			gap: 1rem;
-			background: var(--color-secundario);
-			padding: 1rem;
-		}
+    header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background-color: var(--color-acento);
+    }
 
-		.navbar a {
-			color:var(--color-fondo);
-			text-decoration: none;
-			font-weight: bold;
-			transition: color 0.3s;
-		}
+    header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+	color: var(--color-claro);
+    }
 
-		.navbar a:hover {
-			color:var(--color-fondo-alt);
-		}
+    .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    }
 
-		.contenedor {
-			display: flex;
-			flex-direction: column;
-			max-width: 1200px;
-			margin: auto;
-			padding: 2rem 1rem;
-		}
+    .navbar a {
+    text-decoration: none;
+    color: var(--color-primario);
+    font-weight: 600;
+    position: relative;
+    }
 
-		.columna {
-			flex: 1 1 100%;
-			box-sizing: border-box;
-			padding: 2rem;
-			margin-bottom: 2rem;
-			border-radius: 20px;
-			background: var(--color-fondo-alt);
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-			text-align: justify;
-		}
+    .navbar a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-acento);
+    transition: width 0.3s;
+    }
 
-		.columna:nth-child(even) {
-			background: #eaf0f1;
-		}
+    .navbar a:hover::after {
+    width: 100%;
+    }
 
-		.columna h2 {
-			margin-top: 0;
-			font-size: 1.8rem;
-			color: var(--color-principal);
-		}
+    .contenedor {
+    max-width: 1100px;
+    margin: auto;
+    padding: 3rem 1.5rem;
+    }
 
-		footer {
-			background: #333;
-			color: white;
-			text-align: center;
-			padding: 1rem;
-		}
+    .columna {
+    margin-bottom: 4rem;
+    padding: 2rem 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    }
 
-		/* Media queries (se mantienen para ampliaciones futuras) */
-		@media (min-width: 600px) {
-			.columna {
-				flex: 1 1 100%;
-			}
-		}
+    .columna.visible {
+    opacity: 1;
+    transform: translateY(0);
+    }
 
-		@media (min-width: 900px) {
-			.columna {
-				flex: 1 1 100%;
-			}
-		}
-	</style>
+    .columna h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-acento);
+    }
+
+    .columna p {
+    font-size: 1.05rem;
+    color: var(--color-secundario);
+    text-align: justify;
+    }
+
+    .btn-analisis {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--color-acento);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    }
+
+    .btn-analisis:hover {
+    background-color: #12636c;
+    }
+
+    .toggle-analisis {
+    display: none;
+    }
+
+    .analisis-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+	margin-top: 1rem;
+    }
+
+    .toggle-analisis:checked + label + .analisis-content {
+    max-height: 1000px;
+    opacity: 1;
+    }
+
+    .analisis-content h3 {
+    color: var(--color-acento);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    }
+
+    .analisis-content p {
+    color: var(--color-secundario);
+    text-align: justify;
+    }
+
+    footer {
+    background: var(--color-acento);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 1rem;
+        text-align: center;
+    }
+    }
+</style>
 </head>
 <body>
 
-	<header>
-		<h1>Análisis</h1>
-	</header>
+<header>
+    <h1>Análisis de Tendencias</h1>
+</header>
 
-	<nav class="navbar">
-		<a href="#pagina1">True Kind Skincare</a>
-		<a href="#pagina2">LVMH Prize 2023</a>
-		<a href="#pagina3">Dgrees Studio</a>
-		<a href="#pagina4">Dolsten & Co.</a>
-	</nav>
+<nav class="navbar">
+    <a href="#pagina1">Awwwards</a>
+    <a href="#pagina2">Webby Awards</a>
+    <a href="#pagina3">FWA</a>
+    <a href="#pagina4">CSS Design Awards</a>
+</nav>
 
-	<main class="contenedor">
-		<article class="columna" id="pagina1">
-			<h2>True Kind Skincare</h2>
-			<p>El sitio web de True Kind Skincare presenta una estética visual limpia, minimalista y elegante que se alinea con las tendencias actuales del diseño web, particularmente en el sector del bienestar y la cosmética. Utiliza una paleta de colores neutros y suaves que refuerzan la sensación de naturalidad y pureza, coherente con la promesa de una marca basada en el cuidado consciente de la piel. La tipografía sans-serif empleada aporta modernidad y buena legibilidad, mientras que las imágenes de alta calidad, centradas en ingredientes y texturas naturales, fortalecen la identidad visual y el mensaje de transparencia.
+<main class="contenedor">
+    <!-- Pagina 1 -->
+    <article class="columna" id="pagina1">
+    <h2>Awwwards</h2>
+    <div class="web-preview">
+        <h3>True Kind Skincare</h3>
+        <iframe src="https://truekindskincare.com" loading="lazy" width="100%" height="250" frameborder="0"
+        style="border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);" allowfullscreen></iframe>
+    </div>
+    <p>Explora el sitio</p>
 
-				En términos de interfaz, la estructura del sitio es clara y bien organizada, con un uso inteligente del espacio en blanco que da respiro al contenido y guía la mirada del usuario. Las microinteracciones son sutiles y bien implementadas, haciendo que la navegación se sienta fluida sin resultar invasiva. El diseño mantiene coherencia en todos sus elementos: los botones, menús y componentes visuales siguen una misma lógica estética y funcional. Aunque no incluye un modo oscuro o alternativo, la experiencia visual general es cálida, accesible y cómoda.
-				
-				La experiencia de usuario es positiva gracias a una arquitectura de información clara y una navegación intuitiva, que permite al usuario comprender rápidamente la propuesta de valor de la marca y explorar productos sin esfuerzo. La página es responsive y se adapta correctamente a dispositivos móviles, lo cual es esencial en la actualidad. Aunque no se detectan errores evidentes en accesibilidad, se podrían optimizar aspectos como el contraste o navegación por teclado para alcanzar un estándar más inclusivo. La velocidad de carga es adecuada y no interfiere con la experiencia general.
-				
-				En cuanto a la implementación de tendencias, el sitio sigue una narrativa visual sutil a través del scroll, pero no incorpora elementos más avanzados como scroll-telling inmersivo, tipografía cinética, personalización dinámica o inteligencia artificial aplicada a la experiencia del usuario. El diseño es sobrio y evita efectos llamativos como gradientes vibrantes o glassmorphism, apostando por una estética más natural y enfocada en el contenido. Aunque esta elección es coherente con su identidad, hay margen para explorar algunos recursos de diseño más innovadores sin perder su esencia.
-				
-				En definitiva, True Kind Skincare logra transmitir una imagen de marca honesta, natural y cuidada a través de un diseño coherente, moderno y funcional. Aunque no arriesga con elementos de vanguardia tecnológica o visual, ofrece una experiencia pulida, profesional y visualmente atractiva, lo cual es clave para generar confianza en el entorno competitivo del e-commerce de cosmética.</p>
-		</article>
+    <input type="checkbox" id="toggle-analisis1" class="toggle-analisis">
+    <label for="toggle-analisis1" class="btn-analisis">Ver análisis</label>
+    <div class="analisis-content">
+        <p>El sitio web de <b>True Kind Skincare </b> presenta una estética visual limpia, minimalista y elegante que se alinea con las tendencias actuales del diseño web, particularmente en el sector del bienestar y la cosmética. Utiliza una paleta de colores neutros y suaves que refuerzan la sensación de naturalidad y pureza, coherente con la promesa de una marca basada en el cuidado consciente de la piel. La tipografía sans-serif empleada aporta modernidad y buena legibilidad, mientras que las imágenes de alta calidad, centradas en ingredientes y texturas naturales, fortalecen la identidad visual y el mensaje de transparencia.</p>
 
-		<article class="columna" id="pagina2">
-			<h2>LVMH Prize 2023</h2>
-			<p>El sitio web del LVMH Prize 2023 representa una ejecución destacada de diseño web contemporáneo, alineado con las tendencias visuales y tecnológicas más relevantes del momento. Desde el primer momento, el usuario se encuentra con una experiencia inmersiva, gracias a una estética visual elegante y minimalista, donde predominan los tonos neutros y una disposición que prioriza las imágenes de alta calidad. Estas imágenes, especialmente las vistas en 360 grados de las creaciones de los diseñadores, refuerzan no solo la dimensión estética del sitio, sino también su funcionalidad al permitir al visitante explorar los detalles de cada propuesta con un nivel de profundidad pocas veces visto en páginas dedicadas a la moda.
+	    <p>En términos de interfaz, la estructura del sitio es clara y bien organizada, con un uso inteligente del espacio en blanco que da respiro al contenido y guía la mirada del usuario. Las microinteracciones son sutiles y bien implementadas, haciendo que la navegación se sienta fluida sin resultar invasiva. El diseño mantiene coherencia en todos sus elementos: los botones, menús y componentes visuales siguen una misma lógica estética y funcional. Aunque no incluye un modo oscuro o alternativo, la experiencia visual general es cálida, accesible y cómoda.</p>
+			
+		<p>La experiencia de usuario es positiva gracias a una arquitectura de información clara y una navegación intuitiva, que permite al usuario comprender rápidamente la propuesta de valor de la marca y explorar productos sin esfuerzo. La página es responsive y se adapta correctamente a dispositivos móviles, lo cual es esencial en la actualidad. Aunque no se detectan errores evidentes en accesibilidad, se podrían optimizar aspectos como el contraste o navegación por teclado para alcanzar un estándar más inclusivo. La velocidad de carga es adecuada y no interfiere con la experiencia general.</p>
+			
+		<p>En cuanto a la implementación de tendencias, el sitio sigue una narrativa visual sutil a través del scroll, pero no incorpora elementos más avanzados como scroll-telling inmersivo, tipografía cinética, personalización dinámica o inteligencia artificial aplicada a la experiencia del usuario. El diseño es sobrio y evita efectos llamativos como gradientes vibrantes o glassmorphism, apostando por una estética más natural y enfocada en el contenido. Aunque esta elección es coherente con su identidad, hay margen para explorar algunos recursos de diseño más innovadores sin perder su esencia.</p>
+			
+		<p>En definitiva, <b>True Kind Skincare</b> logra transmitir una imagen de marca honesta, natural y cuidada a través de un diseño coherente, moderno y funcional. Aunque no arriesga con elementos de vanguardia tecnológica o visual, ofrece una experiencia pulida, profesional y visualmente atractiva, lo cual es clave para generar confianza en el entorno competitivo del e-commerce de cosmética.</p>
 
-				La interfaz está pensada para ser fluida y clara, con una jerarquía visual bien resuelta y microinteracciones sutiles que aportan dinamismo sin saturar la experiencia. La navegación es intuitiva, y el uso del espacio y las animaciones están cuidadosamente medidos, ofreciendo una estructura que acompaña al usuario sin desorientarlo. Aunque no incorpora un modo oscuro, el equilibrio visual general es cómodo y efectivo en distintos entornos de visualización. El diseño responsivo garantiza una experiencia coherente tanto en dispositivos móviles como en pantallas de escritorio, y la carga del sitio es eficiente pese al contenido visualmente demandante.
-				
-				En términos de experiencia de usuario, se nota un enfoque centrado en la interacción significativa. La posibilidad de votar en línea por los diseñadores finalistas no solo convierte al usuario en parte activa del proceso, sino que además refuerza la dimensión participativa y emocional del premio. Esta integración de contenido interactivo y narrativo se vincula directamente con tendencias actuales como el “phygital” (la mezcla de experiencias físicas y digitales), el scroll narrativo y el uso de contenido inmersivo. Aunque el sitio no explora elementos como personalización basada en IA o modos avanzados de accesibilidad, el enfoque está claramente puesto en crear un entorno aspiracional, intuitivo y visualmente impactante.
-				
-				La identidad de marca está perfectamente integrada. El sitio destila la sofisticación y el prestigio asociados a LVMH, al tiempo que proyecta modernidad, innovación y un claro compromiso con las nuevas generaciones de diseñadores. El tono visual y textual es coherente en toda la plataforma, logrando una experiencia sólida, memorable y fiel a los valores de la firma. En resumen, se trata de un sitio que no solo funciona como escaparate digital de un concurso de moda, sino como una verdadera vitrina tecnológica y estética que marca un estándar en diseño web para el sector de lujo y creatividad.</p>
-		</article>
+    </div>
+    </article>
 
-		<article class="columna" id="pagina3">
-			<h2>Dgrees Studio</h2>
-			<p>El sitio web de Dgrees Studio es una demostración de diseño digital contemporáneo que equilibra con precisión la estética visual, la funcionalidad y la narrativa de marca. Desde el primer momento, se percibe una atmósfera sofisticada y profesional, impulsada por una paleta de colores sobria y elegante que da protagonismo a los contenidos visuales sin distraer al usuario. La tipografía moderna y legible, junto con imágenes y videos de alta calidad, construyen una identidad visual sólida que refleja con fidelidad el enfoque innovador del estudio.
+    <!-- Pagina 2 -->
+    <article class="columna" id="pagina2">
+    <h2>Webby Awards</h2>
+    <div class="web-preview">
+        <h3>LVMH Prize 2023</h3>
+        <iframe src="https://www.lvmhprize.com" loading="lazy" width="100%" height="250" frameborder="0"
+    style="border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);" allowfullscreen></iframe>
+    </div>
+    <p>Explora el sitio</p>
 
-				El diseño de la interfaz es intuitivo y está cuidadosamente estructurado. La navegación resulta fluida y lógica, con un menú principal claro que facilita el acceso a las secciones clave como "Works", "Capabilities" y "Culture". Las animaciones y microinteracciones están bien integradas: son suaves, dinámicas y aportan un sentido de sofisticación tecnológica sin entorpecer la experiencia del usuario. Los componentes visuales mantienen coherencia en todo el sitio, reforzando la consistencia de marca. La adaptación a distintos dispositivos es impecable, garantizando una experiencia responsiva que mantiene la calidad visual tanto en escritorio como en móviles.
-				
-				En cuanto a experiencia de usuario, el sitio destaca por la claridad con la que presenta la información. Cada proyecto está cuidadosamente documentado con textos concisos, imágenes impactantes y una estructura que permite al visitante comprender el valor de cada solución creativa. La velocidad de carga, a pesar del uso intensivo de contenido multimedia, está bien optimizada, lo cual habla de una implementación técnica de calidad. Aunque no se evidencia la integración de elementos avanzados de accesibilidad, como navegación por teclado o descripciones alternativas, la experiencia general es muy positiva.
-				
-				Dgrees Studio adopta con naturalidad varias de las tendencias actuales del diseño web: el uso de video como recurso narrativo, las transiciones dinámicas, el storytelling visual y la presencia de espacios en blanco que aportan respiración al contenido. Todo esto se alinea perfectamente con la identidad del estudio y su posicionamiento como agente de innovación dentro del mundo del diseño digital. El sitio no solo comunica lo que hacen, sino también cómo piensan y cuál es su cultura, algo que se ve claramente en la sección "About", donde el tono editorial es cercano y honesto, pero con una cuidada estética profesional.
-				
-				En resumen, la web de Dgrees Studio no solo cumple con los estándares modernos de diseño, sino que los utiliza para construir una experiencia memorable, coherente y diferenciadora. Es una página que transmite con claridad los valores del estudio, su capacidad creativa y su enfoque estratégico, dejando una impresión duradera en quienes la visitan.</p>
-		</article>
+    <input type="checkbox" id="toggle-analisis2" class="toggle-analisis">
+    <label for="toggle-analisis2" class="btn-analisis">Ver análisis</label>
+    <div class="analisis-content">
+        <p> El sitio web del <b>LVMH Prize 2023</b> representa una ejecución destacada de diseño web contemporáneo, alineado con las tendencias visuales y tecnológicas más relevantes del momento. Desde el primer momento, el usuario se encuentra con una experiencia inmersiva, gracias a una estética visual elegante y minimalista, donde predominan los tonos neutros y una disposición que prioriza las imágenes de alta calidad. Estas imágenes, especialmente las vistas en 360 grados de las creaciones de los diseñadores, refuerzan no solo la dimensión estética del sitio, sino también su funcionalidad al permitir al visitante explorar los detalles de cada propuesta con un nivel de profundidad pocas veces visto en páginas dedicadas a la moda.</p>
 
-		<article class="columna" id="pagina4">
-			<h2>Dolsten & Co.</h2>
-			<p>El sitio web de Dolsten & Co. presenta un diseño que refleja la innovación y creatividad del estudio. La estética visual es moderna y sofisticada, con una paleta de colores sobria que resalta los contenidos clave. La tipografía utilizada es clara y legible, complementada por imágenes y videos de alta calidad que destacan los proyectos y logros del estudio.​
-				
-				La interfaz de usuario es intuitiva y bien estructurada, facilitando la navegación a través de las distintas secciones como "Work", "About" y "Contact". Las animaciones y transiciones son fluidas, aportando dinamismo sin comprometer la usabilidad. Los elementos interactivos mantienen una apariencia coherente, reforzando la identidad visual de la marca. Además, el diseño es responsivo, asegurando una experiencia óptima en diversos dispositivos.​
-				
-				En términos de experiencia de usuario, el sitio proporciona una navegación fluida y una presentación detallada de los proyectos, permitiendo a los visitantes comprender el alcance y la calidad del trabajo realizado. Aunque se emplea contenido multimedia de alta calidad, la velocidad de carga se mantiene eficiente. Sin embargo, no se especifica si se han implementado características específicas de accesibilidad, como descripciones alternativas para imágenes o navegación por teclado.​
-				
-				El sitio incorpora tendencias actuales de diseño web, como la integración de animaciones y videos, un enfoque en la narrativa visual y el uso equilibrado de espacios en blanco. Estos elementos contribuyen a una experiencia inmersiva y atractiva para el usuario.​
-				
-				La identidad de marca se comunica eficazmente a través del diseño del sitio, reflejando los valores y la visión de Dolsten & Co. La coherencia visual y de contenido refuerza la imagen profesional y vanguardista del estudio, dejando una impresión duradera en los visitantes.​
-				
-				En resumen, el sitio web de Dolsten & Co. ejemplifica un diseño web moderno y efectivo, alineado con las mejores prácticas en estética, funcionalidad y experiencia del usuario. La presentación cuidadosa de sus proyectos y capacidades refleja el compromiso del estudio con la innovación y la excelencia en el diseño digital.</p>
-		</article>
-	</main>
+		<p>La interfaz está pensada para ser fluida y clara, con una jerarquía visual bien resuelta y microinteracciones sutiles que aportan dinamismo sin saturar la experiencia. La navegación es intuitiva, y el uso del espacio y las animaciones están cuidadosamente medidos, ofreciendo una estructura que acompaña al usuario sin desorientarlo. Aunque no incorpora un modo oscuro, el equilibrio visual general es cómodo y efectivo en distintos entornos de visualización. El diseño responsivo garantiza una experiencia coherente tanto en dispositivos móviles como en pantallas de escritorio, y la carga del sitio es eficiente pese al contenido visualmente demandante.</p>
+			
+		<p>En términos de experiencia de usuario, se nota un enfoque centrado en la interacción significativa. La posibilidad de votar en línea por los diseñadores finalistas no solo convierte al usuario en parte activa del proceso, sino que además refuerza la dimensión participativa y emocional del premio. Esta integración de contenido interactivo y narrativo se vincula directamente con tendencias actuales como el “phygital” (la mezcla de experiencias físicas y digitales), el scroll narrativo y el uso de contenido inmersivo. Aunque el sitio no explora elementos como personalización basada en IA o modos avanzados de accesibilidad, el enfoque está claramente puesto en crear un entorno aspiracional, intuitivo y visualmente impactante.</p>
+			
+		<p>La identidad de marca está perfectamente integrada. El sitio destila la sofisticación y el prestigio asociados a LVMH, al tiempo que proyecta modernidad, innovación y un claro compromiso con las nuevas generaciones de diseñadores. El tono visual y textual es coherente en toda la plataforma, logrando una experiencia sólida, memorable y fiel a los valores de la firma. En resumen, se trata de un sitio que no solo funciona como escaparate digital de un concurso de moda, sino como una verdadera vitrina tecnológica y estética que marca un estándar en diseño web para el sector de lujo y creatividad.
+</p>
+    </div>
+    </article>
 
-	<footer>&copy; 2025 Mi Sitio Web</footer>
+    <!-- Pagina 3 -->
+    <article class="columna" id="pagina3">
+    <h2>FWA</h2>
+    <div class="web-preview">
+        <h3>Dgrees Studio</h3>
+        <iframe src="https://dgrees.studio" loading="lazy" width="100%" height="250" frameborder="0"
+        style="border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);" allowfullscreen></iframe>
+    </div>
+    <p>Explora el sitio</p>
 
+	<input type="checkbox" id="toggle-analisis3" class="toggle-analisis">
+    <label for="toggle-analisis3" class="btn-analisis">Ver análisis</label>
+    <div class="analisis-content">
+        <p>El sitio web de <b>Dgrees Studio</b> es una demostración de diseño digital contemporáneo que equilibra con precisión la estética visual, la funcionalidad y la narrativa de marca. Desde el primer momento, se percibe una atmósfera sofisticada y profesional, impulsada por una paleta de colores sobria y elegante que da protagonismo a los contenidos visuales sin distraer al usuario. La tipografía moderna y legible, junto con imágenes y videos de alta calidad, construyen una identidad visual sólida que refleja con fidelidad el enfoque innovador del estudio.</p>
+
+		<p>El diseño de la interfaz es intuitivo y está cuidadosamente estructurado. La navegación resulta fluida y lógica, con un menú principal claro que facilita el acceso a las secciones clave como "Works", "Capabilities" y "Culture". Las animaciones y microinteracciones están bien integradas: son suaves, dinámicas y aportan un sentido de sofisticación tecnológica sin entorpecer la experiencia del usuario. Los componentes visuales mantienen coherencia en todo el sitio, reforzando la consistencia de marca. La adaptación a distintos dispositivos es impecable, garantizando una experiencia responsiva que mantiene la calidad visual tanto en escritorio como en móviles.</p>
+		
+		<p>En cuanto a experiencia de usuario, el sitio destaca por la claridad con la que presenta la información. Cada proyecto está cuidadosamente documentado con textos concisos, imágenes impactantes y una estructura que permite al visitante comprender el valor de cada solución creativa. La velocidad de carga, a pesar del uso intensivo de contenido multimedia, está bien optimizada, lo cual habla de una implementación técnica de calidad. Aunque no se evidencia la integración de elementos avanzados de accesibilidad, como navegación por teclado o descripciones alternativas, la experiencia general es muy positiva.</p>
+			
+		<p><b>Dgrees Studio</b> adopta con naturalidad varias de las tendencias actuales del diseño web: el uso de video como recurso narrativo, las transiciones dinámicas, el storytelling visual y la presencia de espacios en blanco que aportan respiración al contenido. Todo esto se alinea perfectamente con la identidad del estudio y su posicionamiento como agente de innovación dentro del mundo del diseño digital. El sitio no solo comunica lo que hacen, sino también cómo piensan y cuál es su cultura, algo que se ve claramente en la sección "About", donde el tono editorial es cercano y honesto, pero con una cuidada estética profesional.</p>
+		
+		<p>En resumen, la web de <b>Dgrees Studio</b> no solo cumple con los estándares modernos de diseño, sino que los utiliza para construir una experiencia memorable, coherente y diferenciadora. Es una página que transmite con claridad los valores del estudio, su capacidad creativa y su enfoque estratégico, dejando una impresión duradera en quienes la visitan.
+</p>
+    </div>
+    </article>
+
+    <!-- Pagina 4 -->
+    <article class="columna" id="pagina4">
+    <h2>CSS Design Awards</h2>
+    <div class="web-preview">
+        <h3>Dolsten & Co.</h3>
+        <iframe src="https://dolsten.com" loading="lazy" width="100%" height="250" frameborder="0"
+        style="border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);" allowfullscreen></iframe>
+    </div>
+    <p>Explora el sitio</p>
+
+    <input type="checkbox" id="toggle-analisis4" class="toggle-analisis">
+    <label for="toggle-analisis4" class="btn-analisis">Ver análisis</label>
+    <div class="analisis-content">
+        <p>El sitio web de <b>Dolsten & Co.</b> presenta un diseño que refleja la innovación y creatividad del estudio. La estética visual es moderna y sofisticada, con una paleta de colores sobria que resalta los contenidos clave. La tipografía utilizada es clara y legible, complementada por imágenes y videos de alta calidad que destacan los proyectos y logros del estudio.</p>
+                
+		<p>La interfaz de usuario es intuitiva y bien estructurada, facilitando la navegación a través de las distintas secciones como "Work", "About" y "Contact". Las animaciones y transiciones son fluidas, aportando dinamismo sin comprometer la usabilidad. Los elementos interactivos mantienen una apariencia coherente, reforzando la identidad visual de la marca. Además, el diseño es responsivo, asegurando una experiencia óptima en diversos dispositivos.</p>
+			
+		<p>En términos de experiencia de usuario, el sitio proporciona una navegación fluida y una presentación detallada de los proyectos, permitiendo a los visitantes comprender el alcance y la calidad del trabajo realizado. Aunque se emplea contenido multimedia de alta calidad, la velocidad de carga se mantiene eficiente. Sin embargo, no se especifica si se han implementado características específicas de accesibilidad, como descripciones alternativas para imágenes o navegación por teclado.</p>
+			
+		<p>El sitio incorpora tendencias actuales de diseño web, como la integración de animaciones y videos, un enfoque en la narrativa visual y el uso equilibrado de espacios en blanco. Estos elementos contribuyen a una experiencia inmersiva y atractiva para el usuario.</p>
+			
+		<p>La identidad de marca se comunica eficazmente a través del diseño del sitio, reflejando los valores y la visión de Dolsten & Co. La coherencia visual y de contenido refuerza la imagen profesional y vanguardista del estudio, dejando una impresión duradera en los visitantes.</p>
+			
+		<p>En resumen, el sitio web de <b>Dolsten & Co.</b> ejemplifica un diseño web moderno y efectivo, alineado con las mejores prácticas en estética, funcionalidad y experiencia del usuario. La presentación cuidadosa de sus proyectos y capacidades refleja el compromiso del estudio con la innovación y la excelencia en el diseño digital.</p>
+</p>
+    </div>
+    </article>
+</main>
+
+<footer>
+    &copy; 2025 Análisis de Tendencias
+</footer>
+
+<script>
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+	entry.target.classList.add('visible');
+        }
+    });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.columna').forEach(columna => {
+    observer.observe(columna);
+    });
+</script>
 </body>
 </html>
 

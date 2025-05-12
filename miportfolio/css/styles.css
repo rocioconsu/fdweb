@@ -9,9 +9,9 @@ body {
   background-color: #fff8f8;
   color: #444;
   margin: 0;
-  padding: 20px 20px; 
+  padding: 0;
+  position: relative;
 }
-
 header {
   text-align: right;
   padding: 20px;
@@ -74,7 +74,7 @@ h2 {
   display: flex;
   justify-content: left;
   align-items: flex-start;
-  margin-top: 150px;
+  margin-top: 50px;
   flex-wrap: wrap;
   gap: 50px;
 }
@@ -82,7 +82,7 @@ h2 {
 .about-title {
   font-family: 'Great Vibes', cursive;
   color: #f01b3e;
-  font-size: 50px;
+  font-size: 70px;
   margin-bottom: 50px;
   margin-top: 100px;
 }
@@ -91,7 +91,7 @@ h2 {
   max-width: 850px;
   text-align: left;
   color: #f01b3e;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .about-text p {
@@ -118,8 +118,15 @@ h2 {
   font-weight: bold;
 }
 
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  color: #f01b3e;
+  font-size: 200px;
+  margin-bottom: 50px;
+  margin-top:5px;
+}
+
 .skills-section {
-      padding: 40px 20px;
       max-width: 900px;
       margin: 0 auto;
 }
@@ -138,7 +145,7 @@ h2 {
   gap: 10px;
   font-weight: bold;
   color: #333;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .skill-name img {
@@ -250,3 +257,15 @@ footer p {
   margin: 5px 0;
 }
 
+a, .btn {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.explicaciones {
+  width: auto;
+  text-align: justify;
+  color: #f01b3e;
+  font-size: 20px;
+  }

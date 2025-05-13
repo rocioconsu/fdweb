@@ -1,150 +1,127 @@
-<!DOCTYPE html>  
-<html lang="es"> 
-<head>  
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Error 404 - Página no encontrada</title>
-    <link rel="icon" type="image/png" href="mickey.png"> 
-    <link rel="stylesheet" href="404.css"> 
-    <style>
-        /* Importación de una fuente personalizada desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Error 404</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-    /* Fondo con degradado azul para dar un efecto mágico */
-    background: linear-gradient(to bottom, #0066cc, #99ccff);
+    body {
+      margin: 0;
+      height: 100vh;
+      padding: 20px;
+      background: linear-gradient(to bottom, #fff4f7, #ffe9f0);
+      font-family: 'Montserrat' cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #f01b3e;
+      overflow: hidden;
+    }
 
-    /* Aplicar la fuente personalizada */
-    font-family: 'Mouse Memoirs', sans-serif;
+    .falling-text {
+      display: flex;
+      font-size: 12vw;
+      font-weight: bold;
+      line-height: 1;
+      height: 30vh;
+      position: relative;
+      justify-content: center;
+    }
 
-    /* Centrar el contenido de la página */
-    text-align: center;
+    .falling-text span {
+      display: inline-block;
+      transform-origin: top center;
+      position: relative;
+    }
 
-    /* Color del texto en blanco */
-    color: white;
+    .zero {
+      animation: swing 2s ease-in-out 0s 1, drop 1s ease-out forwards 2.5s;
+      position: relative;
+      z-index: 1;
+    }
 
-    /* Eliminar márgenes predeterminados del navegador */
-    margin: 0;
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(10deg); }
+      50% { transform: rotate(-10deg); }
+      75% { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
 
-    /* Usar flexbox para centrar el contenido vertical y horizontalmente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @keyframes drop {
+      0% {
+        top: 0;
+        transform: rotate(0deg);
+      }
+      100% {
+        top: 60px;
+        transform: rotate(5deg);
+      }
+    }
 
-    /* Ocupa toda la altura de la pantalla */
-    height: 100vh;
-}
+    .message {
+      font-size: 1.5rem;
+      margin-top: 40px;
+      text-align: center;
+      max-width: 600px;
+      font-family: sans-serif;
+    }
 
-/* Contenedor principal */
-.container {
-    position: relative;
-}
+    .btn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #f01b3e;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s ease;
+      font-family: sans-serif;
+    }
 
-/* Título con los números y la imagen */
-h1 {
-    font-size: 150px; /* Tamaño grande del texto "404" */
-    display: flex; /* Organiza los elementos en fila */
-    align-items: center; /* Centrar verticalmente */
-    justify-content: center; /* Centrar horizontalmente */
-    gap: 10px; /* Espaciado entre elementos */
-    position: relative;
-}
+    .btn:hover {
+      background-color: #fa5570;
+      transform: scale(1.05);
+    }
 
-/* Estilo de los números "4" con animación */
-.number {
-    display: inline-block; /* Mantiene los números alineados */
-    animation: bounce 1.5s infinite alternate ease-in-out; /* Animación de rebote */
-}
+    /* Responsivo para pantallas pequeñas */
+    @media (max-width: 600px) {
+      .falling-text {
+        font-size: 18vw;
+        height: 25vh;
+      }
 
-/* El primer "4" inicia su animación sin retraso */
-.number:nth-child(1) {
-    animation-delay: 0s;
-}
+      .message {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
 
-/* El segundo "4" tiene un ligero retraso en la animación */
-.number:nth-child(3) {
-    animation-delay: 0.2s;
-}
+      .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
 
-/* Imagen de Mickey Mouse */
-.mickey {
-    width: 120px; /* Tamaño de la imagen */
-    animation: spin 3s linear infinite; /* Animación de rotación infinita */
-}
+  <div class="falling-text">
+    <span>E</span><span>R</span><span>R</span><span>O</span><span>R</span>
+    <span>&nbsp;</span>
+    <span>4</span><span class="zero">0</span><span>4</span>
+  </div>
 
-/* Mensaje de error */
-p {
-    font-size: 24px; /* Tamaño de fuente */
-    margin-top: -20px; /* Ajuste para acercarlo a la imagen */
-    animation: fadeIn 2s ease-in-out; /* Efecto de aparición gradual */
-}
+  <div class="message">
+    ¡Oops! Parece que algo no fue bien... esta página no existe.
+  </div>
 
-/* Estilos del botón */
-.btn {
-    display: inline-block; /* Se comporta como un bloque pero sin ocupar todo el ancho */
-    background-color: #ffcc00; /* Color amarillo estilo Disney */
-    padding: 15px 30px; /* Espaciado interno */
-    font-size: 20px; /* Tamaño de fuente */
-    color: #222; /* Color del texto */
-    text-decoration: none; /* Quitar el subrayado del enlace */
-    border-radius: 25px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para efecto 3D */
-    transition: 0.3s; /* Transición suave */
-    margin-top: 20px; /* Espaciado superior */
-    animation: pulse 2s infinite; /* Efecto de latido */
-}
+  <a href="index.html" class="btn">Volver atrás</a>
 
-/* Cambio de color y efecto de escala al pasar el mouse sobre el botón */
-.btn:hover {
-    background-color: #ff9900;
-    transform: scale(1.1);
-}
-
-/* ANIMACIONES */
-
-/* Rebote de los números "4" */
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); } /* Rebota 20px hacia arriba */
-}
-
-/* Rotación infinita de la imagen de Mickey */
-@keyframes spin {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); } /* Gira 360 grados */
-}
-
-/* Efecto de aparición del mensaje */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* Efecto de latido en el botón */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-    </style>
-</head>  
-<body>  
-    <!-- Contenedor principal que agrupa todos los elementos -->
-    <div class="container"> 
-
-        <!-- Título de la página con animaciones -->
-        <h1>
-            <span class="number">4</span> <!-- Primer número del "404" -->
-            <img src="./assets/imagenes/mickey.png" alt="Mickey Mouse" class="mickey"> <!-- Imagen de Mickey en el centro -->
-            <span class="number">4</span> <!-- Segundo número del "404" -->
-        </h1>
-
-        <!-- Mensaje de error para el usuario -->
-        <p>Parece que esta página ha desaparecido como por arte de magia.</p> 
-
-        <!-- Botón de regreso a la página principal -->
-        <a href="index.html" class="btn">Volver a casa</a> 
-    </div>
-</body>  
+</body>
 </html>

@@ -94,6 +94,8 @@ h2 {
   font-size: 70px;
   margin-bottom: 50px;
   margin-top: 100px;
+  text-align: left;
+   margin-left: 0; 
 }
 
 .about-text {
@@ -136,7 +138,7 @@ h2 {
 .section-title {
   font-family: 'Arizonia', cursive;
   color: #f01b3e;
-  font-size: 200px;
+  font-size: 100px;
   margin-bottom: 50px;
   margin-top:5px;
 }
@@ -147,7 +149,7 @@ h2 {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
-  max-width: 400px;
+  max-width: 1250px;
 }
 
 .skill-name {
@@ -241,7 +243,7 @@ h2 {
   margin-top: 40px;
 }
 .container {
-  max-width: 800px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -270,11 +272,6 @@ h2 {
 .language-info img {
   width: 24px;
   height: 24px;
-}
-
-.language-level {
-  font-style: italic;
-  color: #f01b3e;
 }
 
 
@@ -324,6 +321,7 @@ a, .btn {
   color: #f01b3e;
   font-size: 50px;
   margin-bottom: 50px;
+  text-align: center;
 }
 
 .carousel {
@@ -345,15 +343,17 @@ a, .btn {
 }
 
 .slide {
-      width: 30%;
-      flex: 0 0 34%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 #slide1:checked ~ .slides {
@@ -387,4 +387,18 @@ a, .btn {
     #slide2:checked ~ .controls label[for="slide2"],
     #slide3:checked ~ .controls label[for="slide3"] {
       background-color: #f01b3e;
+}
+
+a {
+  color: #f01b3e;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.work-link {
+  text-decoration: none;
+  color: inherit;
 }

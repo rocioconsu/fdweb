@@ -17,10 +17,36 @@
       </ul>
     </nav>
   </header>
+
+  <main class="intro-section">
     <h3 class="section-title">Capricho</h3>
+
+    <!-- Carrusel corregido -->
+    <div class="carousel">
+      <!-- Inputs para controlar el carrusel -->
+      <input type="radio" name="slides" id="slide1" checked>
+      <input type="radio" name="slides" id="slide2">
+      <input type="radio" name="slides" id="slide3">
+
+      <!-- Contenedor de las imágenes -->
+      <div class="slides">
+        <div class="slide"><img src="assets/images/botellas delante.PNG" alt="Capricho Imagen 1"></div>
+        <div class="slide"><img src="assets/images/Double Poster PSD Mockup.png" alt="Capricho Imagen 2"></div>
+        <div class="slide"><img src="assets/images/bookcover.PNG" alt="Capricho Imagen 3"></div>
+      </div>
+
+      <!-- Controles (botones de navegación) -->
+      <div class="controls">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+      </div>
+    </div>
+
+    <!-- Sección de texto explicativo -->
     <section class="about">
       <div class="explicaciones">
-        <h3 class="about-title">About me</h3>
+        <h3 class="project-title">About the project</h3>
         <p>
           Capricho is a natural wine brand created to connect with a new generation of consumers: young people who value authenticity, respect for nature, and contemporary design. This project aims to recover almost forgotten native grape varieties from the Valencian Community, such as Moscatel de Alejandría and Parrel, grown in unique environments like the La Mata Natural Park — an area known for its salinity and closeness to the Mediterranean Sea.
         </p>
@@ -35,3 +61,17 @@
         </p>
       </div>
     </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-contact">
+        <p>@rocixdesign</p>
+        <p><a href="mailto:consuegrarocio05@gmail.com">consuegrarocio05@gmail.com</a></p>
+      </div>
+      <p class="copyright">©2025 Rocío Consuegra’s Portfolio</p>
+    </div>
+  </footer>
+</body>
+</html>

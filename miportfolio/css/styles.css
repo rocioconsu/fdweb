@@ -179,6 +179,7 @@ h2 {
   align-items: flex-start;
   margin-top: 50px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .works-title {
@@ -215,13 +216,13 @@ h2 {
 
 .work-card .category {
   color: #777;
-  font-size: 12px;
+  font-size: 17px;
   margin-bottom: 5px;
 }
 
 .work-card h4 {
   color: #f01b3e;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -269,3 +270,73 @@ a, .btn {
   color: #f01b3e;
   font-size: 20px;
   }
+
+.project-title {
+  font-family: 'Great Vibes', cursive;
+  color: #f01b3e;
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.carousel {
+      width: 100%;
+      max-width: 700px;
+      margin: 50px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+.carousel input[type="radio"] {
+      display: none;
+}
+
+.slides {
+      display: flex;
+      width: 300%;
+      transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+      width: 30%;
+      flex: 0 0 34%;
+}
+
+.slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+}
+
+#slide1:checked ~ .slides {
+      transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+      transform: translateX(-100%);
+}
+
+#slide3:checked ~ .slides {
+      transform: translateX(-200%);
+}
+
+.controls {
+      text-align: center;
+      margin-top: 10px;
+}
+
+.controls label {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 5px;
+      cursor: pointer;
+}
+
+    #slide1:checked ~ .controls label[for="slide1"],
+    #slide2:checked ~ .controls label[for="slide2"],
+    #slide3:checked ~ .controls label[for="slide3"] {
+      background-color: #f01b3e;
+}

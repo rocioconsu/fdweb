@@ -52,9 +52,8 @@ h1 {
   color: #f01b3e;
 }
 
-.cursive {
-  font-family: 'Great Vibes', cursive;
-  font-size: 150px;
+.arizonia {
+  font-family: 'Arizonia', cursive;
 }
 
 h2 {
@@ -80,7 +79,7 @@ h2 {
 }
 
 .about-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Arizonia', cursive;
   color: #f01b3e;
   font-size: 70px;
   margin-bottom: 50px;
@@ -119,7 +118,7 @@ h2 {
 }
 
 .section-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Arizonia', cursive;
   color: #f01b3e;
   font-size: 200px;
   margin-bottom: 50px;
@@ -183,7 +182,7 @@ h2 {
 }
 
 .works-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Arizonia', cursive;
   color: #f01b3e;
   font-size: 50px;
   margin-top: 100px;
@@ -272,7 +271,7 @@ a, .btn {
   }
 
 .project-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Arizonia', cursive;
   color: #f01b3e;
   font-size: 50px;
   margin-bottom: 50px;

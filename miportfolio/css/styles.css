@@ -233,7 +233,7 @@ h2 {
 
 .work-card h4 {
   color: #f01b3e;
-  font-size: clamp(1rem, 2vw, 2rem); /* Usando clamp */
+  font-size: clamp(1rem, 1.5vw, 2rem); /* Usando clamp */
   font-weight: 600;
 }
 

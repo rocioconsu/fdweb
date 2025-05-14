@@ -12,30 +12,32 @@ body {
   padding: 0;
   position: relative;
 }
+
 header {
   text-align: right;
-  padding: 20px;
+  padding: 2vw;
 }
 
 main {
-  padding: 0 20px;
-  max-width: 1100px;
+  padding: 0 0.5vw;
+  max-width: 1500px;
   margin: 0 auto;
+  align-items: center;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: flex-start;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 2vw;
+  margin-top: 2vw;
 }
 
 nav ul li {
   display: inline;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
   text-decoration: underline;
 }
 
@@ -43,17 +45,17 @@ nav a {
   text-decoration: none;
   color: #f01b3e;
   font-weight: 600;
-  font-size: 20px
+  font-size: clamp(1.2rem, 1vw, 2rem); /* Usando clamp */
 }
 
 .intro-section {
   text-align: center;
-  padding: 20px 20px;
+  padding: 1vw;
 }
 
 h1 {
-  font-size: 180px;
-  margin-top: 100px;
+  font-size: clamp(3rem, 10vw, 10rem); /* Usando clamp para ajuste dinámico */
+  margin-top: 5vw;
   font-weight: 700;
   color: #f01b3e;
 }
@@ -63,16 +65,16 @@ h1 {
 }
 
 h2 {
-  font-size: 100px;
-  margin-top: 2px;
-  color:#f01b3e;
+  font-size: clamp(2rem, 6vw, 6rem); /* Usando clamp */
+  margin-top: 1px;
+  color: #f01b3e;
   font-weight: 600;
 }
 
 .swipe {
-  margin-top: 100px;
-  margin-bottom: 150px;
-  font-size: 20px;
+  margin-top: 10vw;
+  margin-bottom: 10vw;
+  font-size: clamp(1rem, 2vw, 2rem); /* Usando clamp */
   color: #f01b3e;
   align-items: center;
 }
@@ -81,9 +83,9 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 50px;
+  margin-top: 3vw;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 2vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -91,90 +93,87 @@ h2 {
 .about-title {
   font-family: 'Arizonia', cursive;
   color: #f01b3e;
-  font-size: 70px;
-  margin-bottom: 50px;
-  margin-top: 100px;
+  font-size: clamp(2rem, 6vw, 6rem); /* Usando clamp */
+  margin-bottom: 5vw;
   text-align: left;
-   margin-left: 0; 
 }
 
 .about-text {
-  flex: 1 1 60%;
+  flex: 1 1 100%;
   color: #f01b3e;
-  font-size: 20px;
+  font-size: clamp(1rem, 1vw, 2rem); /* Usando clamp */
   text-align: justify;
 }
 
 .about-text p {
-  margin-bottom: 15px;
-  margin-right: 40px;
+  margin-right: 4vw;
   line-height: 1.6;
 }
 
 .about-image {
-  flex: 1 1 35%;
-  margin-top: 230px;
+  flex: 1 1 20%;
+  margin-top: 5vw;
 }
 
 .about-image img {
-  width: 100%;
-  max-width: 400px;
+  width: 30%;
+  max-width: 100%;
   border-radius: 10px;
   object-fit: cover;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 10px 20px;
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+  padding: 1vw 1vw;
   background-color: #f01b3e;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-weight: bold;
-  font-size: 18px; 
+  font-size: clamp(1rem, 1vw, 2rem); /* Usando clamp */
+  width: fit-content;
 }
 
 .section-title {
   font-family: 'Arizonia', cursive;
   color: #f01b3e;
-  font-size: 100px;
-  margin-bottom: 50px;
-  margin-top:5px;
+  font-size: clamp(2rem, 15vw, 6rem); /* Usando clamp */
+  margin-bottom: 2vw;
+  margin-top: 1vw;
 }
-
 
 .skill {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 1.5vw;
   max-width: 1250px;
 }
 
 .skill-name {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1vw;
   font-weight: bold;
   color: #f01b3e;
-  font-size: 25px;
+  font-size: clamp(1.2rem, 2vw, 2rem); /* Usando clamp */
 }
 
 .skill-name img {
-  width: 40px;
-  height: 40px;
+  width: 3vw;
+  height: 3vw;
 }
 
 .skill-dots {
   display: flex;
-  gap: 5px;
+  gap: 2vw;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 1vw;
+  height: 1vw;
   border-radius: 50%;
   display: inline-block;
 }
@@ -191,7 +190,7 @@ h2 {
   display: flex;
   justify-content: left;
   align-items: flex-start;
-  margin-top: 50px;
+  margin-top: 5vw;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -199,16 +198,15 @@ h2 {
 .works-title {
   font-family: 'Arizonia', cursive;
   color: #f01b3e;
-  font-size: 50px;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  font-size: clamp(2rem, 5vw, 6rem); /* Usando clamp */
+  margin-top: 10vw;
+  margin-bottom: 5vw;
 }
-
 
 .works-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 3vw;
   max-width: 1800px;
   margin: 0 auto;
 }
@@ -216,73 +214,72 @@ h2 {
 .work-card {
   background-color: #f8e8e8;
   border-radius: 20px;
-  padding: 15px;
+  padding: 2vw;
   text-align: left;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 .work-card img {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
-  margin-bottom: 10px;
+  margin-bottom: 2vw;
 }
 
 .work-card .category {
   color: #777;
-  font-size: 17px;
-  margin-bottom: 5px;
+  font-size: clamp(1rem, 1vw, 2rem); /* Usando clamp */
 }
 
 .work-card h4 {
   color: #f01b3e;
-  font-size: 20px;
+  font-size: clamp(1rem, 2vw, 2rem); /* Usando clamp */
   font-weight: 600;
 }
 
 .center-btn {
-  margin-top: 40px;
+  margin-top: 5vw;
 }
+
 .container {
   max-width: 1250px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 2vw;
 }
 
 .language-list {
   list-style: none;
   padding: 0;
-  margin-top: 10px;
+  margin-top: 2vw;
 }
 
 .language-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
+  margin-bottom: 2vw;
+  padding-bottom: 1vw;
   border-bottom: 1px solid #f8c8c8;
 }
 
 .language-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1vw;
 }
 
 .language-info img {
-  width: 24px;
-  height: 24px;
+  width: 2vw;
+  height: 2vw;
 }
-
 
 footer {
   background-color: #f01b3e;
   color: white;
-  padding: 30px 20px;
+  padding: 2vw 2vw;
   width: 100%;
-  margin: 0; 
-  margin-top: 150px;
+  margin: 0;
+  margin-top: 15vw;
 }
 
 .footer-content {
@@ -301,7 +298,7 @@ footer {
 }
 
 footer p {
-  margin: 5px 0;
+  margin: 1vw 0;
 }
 
 a, .btn {
@@ -314,14 +311,14 @@ a, .btn {
   width: auto;
   text-align: justify;
   color: #f01b3e;
-  font-size: 20px;
-  }
+  font-size: clamp(1rem, 1vw, 2rem); /* Usando clamp */
+}
 
 .project-title {
   font-family: 'Arizonia', cursive;
   color: #f01b3e;
-  font-size: 50px;
-  margin-bottom: 50px;
+  font-size: clamp(2rem, 3vw, 5rem); /* Usando clamp */
+  margin-bottom: 5vw;
   text-align: center;
 }
 
@@ -344,7 +341,7 @@ a, .btn {
   width: 100%;
   max-width: 400px;
   height: 400px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .slide img {
@@ -358,7 +355,6 @@ a, .btn {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 
 a {
   color: #f01b3e;

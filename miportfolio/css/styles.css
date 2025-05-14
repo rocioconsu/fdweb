@@ -342,9 +342,9 @@ a, .btn {
 .slide {
   flex-shrink: 0;
   width: 100%;
-  max-width: 400px; /* Asegúrate de que las diapositivas tengan el mismo tamaño */
-  height: 400px; /* Ajusta la altura según sea necesario */
-  overflow: hidden; /* Evita que las imágenes se desborden */
+  max-width: 400px;
+  height: 400px;
+  overflow: hidden; 
 }
 
 .slide img {
